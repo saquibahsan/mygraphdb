@@ -1,0 +1,896 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#"
+     xml:base="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology">
+        <rdfs:comment>A pizza ontology that describes various pizzas based on their toppings.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#IsBaseOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#IsBaseOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#isIngredientOf"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasBase"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaBase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#IsToppingOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#IsToppingOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#isIngredientOf"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaTopping"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasBase -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasBase">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasIngredient"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaBase"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasIngredient -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasIngredient">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#isIngredientOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasSpiciness -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasSpiciness">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SpicinessValuePartition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasIngredient"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaTopping"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#isIngredientOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#isIngredientOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasCalorificContentValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasCalorificContentValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#AmericanHotPizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#AmericanHotPizza">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#NamedPizza"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#JalapenoPepperTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MozarellaTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PepperoniSausageTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#TomatoTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#JalapenoPepperTopping"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MozarellaTopping"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PepperoniSausageTopping"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#TomatoTopping"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#AmericanaPizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#AmericanaPizza">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#NamedPizza"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MozarellaTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PepperoniSausageTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#TomatoTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MozarellaTopping"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PepperoniSausageTopping"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#TomatoTopping"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#AnchovyTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#AnchovyTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SeafoodTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#CaperTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#CaperTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#VegetableTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#CheeseTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#CheeseTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#CheesyPizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#CheesyPizza">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#CheeseTopping"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>A Cheesy Pizza.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ChickenTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ChickenTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MeatTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#DeepPanBase -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#DeepPanBase">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaBase"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ThinAndCrispyBase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#FourCheesePizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#FourCheesePizza">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#CheeseTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A Four Cheese Pizza.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#GarlicTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#GarlicTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#VegetableTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#GreenPepperTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#GreenPepperTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PepperTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#HamTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#HamTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MeatTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#HighCaloriePizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#HighCaloriePizza">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasCalorificContentValue"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#LowCaloriePizza"/>
+        <rdfs:comment>A High Calorie Pizza consists of high calories in terms of nutrient value.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Hot -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Hot">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SpicinessValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#InterestingPizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#InterestingPizza">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment>An interesting Pizza.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#JalapenoPepperTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#JalapenoPepperTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PepperTopping"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasSpiciness"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Hot"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#LowCaloriePizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#LowCaloriePizza">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasCalorificContentValue"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:maxExclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</xsd:maxExclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment>A Low Calorie Pizza consists of low calories.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MargheritaPizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MargheritaPizza">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#NamedPizza"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MozarellaTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#TomatoTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MozarellaTopping"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#TomatoTopping"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MeatTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MeatTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaTopping"/>
+        <rdfs:comment>The Meat Topping of the Pizza.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Medium -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Medium">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SpicinessValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Mild -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Mild">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SpicinessValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MozarellaTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MozarellaTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#CheeseTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MushroomTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MushroomTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#VegetableTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#NamedPizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#NamedPizza">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza"/>
+        <rdfs:comment>A Named Pizza is a pizza having specific names.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#NonVegetarianPizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#NonVegetarianPizza">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#VegetarianPizza"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#OliveTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#OliveTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#VegetableTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#OnionTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#OnionTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#VegetableTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ParmesanTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ParmesanTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#CheeseTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PepperTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PepperTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#VegetableTopping"/>
+        <rdfs:comment>A Pepper Topping.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PepperoniSausageTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PepperoniSausageTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MeatTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PepperoniTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PepperoniTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MeatTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasBase"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaBase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasCalorificContentValue"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Pizza is a savory dish of Italian origin consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients, which is then baked at a high temperature, traditionally in a wood-fired oven.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaBase -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaBase">
+        <rdfs:comment>The Base of the Pizza.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaTopping">
+        <rdfs:comment>The Topping of the Pizza.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PrawnTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PrawnTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SeafoodTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#RedPepperTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#RedPepperTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PepperTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SalamiTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SalamiTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MeatTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SeafoodTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SeafoodTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaTopping"/>
+        <rdfs:comment>A Seafood Topping.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SohoPizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SohoPizza">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#NamedPizza"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#GarlicTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MozarellaTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#OliveTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ParmesanTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#TomatoTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MozarellaTopping"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#OliveTopping"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ParmesanTopping"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#TomatoTopping"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SpicinessValuePartition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SpicinessValuePartition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ValuePartition"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Hot"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Medium"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Mild"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SpicyPizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SpicyPizza">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasSpiciness"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Hot"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaTopping"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ThinAndCrispyBase -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ThinAndCrispyBase">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaBase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#TomatoTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#TomatoTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#VegetableTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#TunaTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#TunaTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SeafoodTopping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ValuePartition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ValuePartition">
+        <rdfs:comment>A Value Partition classifies the spiciness of the Pizza Toppings.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#VegetableTopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#VegetableTopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaTopping"/>
+        <rdfs:comment>A Vegetable Topping.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#VegetarianPizza -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#VegetarianPizza">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#hasTopping"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#CheeseTopping"/>
+                                    <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#VegetableTopping"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+        <rdfs:comment>This is a general concept of the thing in the real world.</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Example_-_Margherita -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Example_-_Margherita">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MargheritaPizza"/>
+        <hasBase rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ItalianPizzaBase"/>
+        <hasCalorificContentValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">263</hasCalorificContentValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ItalianPizzaBase -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ItalianPizzaBase">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaBase"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Mushroom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Mushroom">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MushroomTopping"/>
+        <IsToppingOf rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#QuattroFormaggio"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza_Capricciosa -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza_Capricciosa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SpicyPizza"/>
+        <hasBase rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#ItalianPizzaBase"/>
+        <hasTopping rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Mushroom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#QuattroFormaggio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#QuattroFormaggio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MargheritaPizza"/>
+        <hasCalorificContentValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">723</hasCalorificContentValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#AmericanHotPizza"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#AmericanaPizza"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MargheritaPizza"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SohoPizza"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#CheeseTopping"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#MeatTopping"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#SeafoodTopping"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#VegetableTopping"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Hot"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Medium"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Mild"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#Pizza"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaBase"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/dell/ontologies/2021/4/pizza-ontology#PizzaTopping"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
