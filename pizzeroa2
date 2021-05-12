@@ -1,7 +1,38 @@
-CREATE (:Pizza:MargheritaPizza { ingredient: "Cheese", identifier: "2167673"})
-CREATE (:Pizza:MargheritaPizza { ingredient: "Tomato", identifier: "11916857"})
+CREATE (:Pizza:MargheritaPizza { topping: "Cheese", identifier: "8"})
+CREATE (:Pizza:MargheritaPizza { topping: "Tomato", identifier: "9"})
 
-CREATE (:Pizza:VegPizza { ingredient: "Tomato", identifier: "8096161"})
+CREATE (:Pizza:VegPizza { topping: "Tomato", identifier: "10"})
 
-CREATE (:Pizza:HotnSpicy { ingredient: "Jalapeno", identifier: "12873809"})
-CREATE (:Pizza:HotnSpicy { ingredient: "Pepper", identifier: "20234576"})
+CREATE (:Pizza:HotnSpicy { topping: "Jalapeno", identifier: "11"})
+CREATE (:Pizza:HotnSpicy { topping: "Pepper", identifier: "12"})
+CREATE (:Pizza:HotnSpicy { topping: "Cheese", identifier: "13"})
+
+
+----------------------------------------------------
+CALL n10s.inference.nodesLabelled('Pizza',  {
+  catNameProp: "dbLabel",
+  catLabel: "Topic",
+  subCatRel: "NARROWER_THAN"
+})
+YIELD node
+RETURN node.identifier as id, node.topping as ingredient, labels(node) as categories;
+
+---------------------------------------------------------------------
+MATCH (co:Topic { name: "MargheritaPizza"})
+MATCH (is:Topic { name: "VegPizza"})
+MATCH (cr:Topic { name: "HotnSpicy"})
+
+CREATE (:Ingredient { topping: "Cheese", identifier: "8"})-[:IS_TOPPING_OF]->(co)
+CREATE (:Ingredient { topping: "Tomato", identifier: "9"})-[:IS_TOPPING_OF]->(co)
+
+CREATE (:Ingredient { topping: "Tomato", identifier: "10"})-[:IS_TOPPING_OF]->(is)
+
+CREATE (:Ingredient { topping: "Jalapeno", identifier: "11"})-[:IS_TOPPING_OF]->(cr)
+CREATE (:Ingredient { topping: "Pepper", identifier: "12"})-[:IS_TOPPING_OF]->(cr)
+CREATE (:Ingredient { topping: "Cheese", identifier: "13"})-[:IS_TOPPING_OF]->(cr)
+
+----------------------------------------
+
+MATCH (cat:Topic { name: "Pizza"})
+CALL n10s.inference.nodesInCategory(cat, { inCatRel: "HAS_SUBJECT", subCatRel: "NARROWER_THAN"}) yield node
+return node.ingredient as Ingredient;
