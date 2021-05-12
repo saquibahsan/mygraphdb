@@ -53,6 +53,7 @@ MATCH (cat:Topic { name: "Pizza"})
 CALL n10s.inference.nodesInCategory(cat, { inCatRel: "IS_TOPPING_OF", subCatRel: "NARROWER_THAN"}) yield node
 return node.topping as INGREDIENT;
 
+
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 
