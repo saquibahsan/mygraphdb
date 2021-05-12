@@ -1,3 +1,7 @@
+## To model a hierarchy of categories we’ll typically use nodes in the graph to represent the categories and related nodes connected through SUBCAT_OF or NARROWER_THAN 
+relationships.
+## We use Topic to label the categories and the NARROWER_THAN to link them in a hierarchy.
+## We can link nodes representing individuals to the category (or categories) they belong to using a TYPE or IN_CATEGORY or else.
 CREATE (c:Topic { name: "Pizza", CalorieContent: 460, dbLabel: "Pizza", identifier: "1" })
 CREATE (po:Topic { name: "NamedPizza", CalorieContent: 440, dbLabel: "NamedPizza", identifier: "2" })
 CREATE (s:Topic { name: "SpicyPizza", CalorieContent: 300, dbLabel: "SpicyPizza", identifier: "3" })
@@ -5,3 +9,50 @@ CREATE (c)<-[:NARROWER_THAN]-(:Topic { name: "MargheritaPizza", CalorieContent: 
 CREATE (c)<-[:NARROWER_THAN]-(:Topic { name: "HotnSpicy", CalorieContent: 320, dbLabel: "HotnSpicy", identifier: "5" })-[:NARROWER_THAN]->(s)
 CREATE (c)<-[:NARROWER_THAN]-(:Topic { name: "VegPizza", CalorieContent: 590, dbLabel: "VegPizza", identifier: "6" })
 CREATE (c)<-[:NARROWER_THAN]-(:Topic { name: "NonVegPizza", CalorieContent: 676, dbLabel: "NonVegPizza", identifier: "7" })
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+## This script creates class of Pizza and sets a label (e.g. MargheritaPizza) on each of them. The labels match categories defined before.
+
+CREATE (:Pizza:MargheritaPizza { topping: "Cheese", identifier: "8"})
+CREATE (:Pizza:MargheritaPizza { topping: "Tomato", identifier: "9"})
+CREATE (:Pizza:VegPizza { topping: "Tomato", identifier: "10"})
+CREATE (:Pizza:HotnSpicy { topping: "Jalapeno", identifier: "11"})
+CREATE (:Pizza:HotnSpicy { topping: "Pepper", identifier: "12"})
+CREATE (:Pizza:HotnSpicy { topping: "Cheese", identifier: "13"})
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Usage of n10s.inference.nodesLabelled:
+Now Query Neo4j for all the Pizza and get all those Pizza actually labelled as Pizza’s subcategories along with the ingredients. 
+
+CALL n10s.inference.nodesLabelled('Pizza',  {
+  catNameProp: "dbLabel",
+  catLabel: "Topic",
+  subCatRel: "NARROWER_THAN"
+})
+YIELD node
+RETURN node.identifier as id, node.topping as ingredient, labels(node) as categories;
+
+---------------------------------------------------------------------
+
+#This script creates node for Ingredient and links to the Pizza through property IS_TOPPING_OF 
+
+MATCH (co:Topic { name: "MargheritaPizza"})
+MATCH (is:Topic { name: "VegPizza"})
+MATCH (cr:Topic { name: "HotnSpicy"})
+
+CREATE (:Ingredient { topping: "Cheese", identifier: "8"})-[:IS_TOPPING_OF]->(co)
+CREATE (:Ingredient { topping: "Tomato", identifier: "9"})-[:IS_TOPPING_OF]->(co)
+CREATE (:Ingredient { topping: "Tomato", identifier: "10"})-[:IS_TOPPING_OF]->(is)
+CREATE (:Ingredient { topping: "Jalapeno", identifier: "11"})-[:IS_TOPPING_OF]->(cr)
+CREATE (:Ingredient { topping: "Pepper", identifier: "12"})-[:IS_TOPPING_OF]->(cr)
+CREATE (:Ingredient { topping: "Cheese", identifier: "13"})-[:IS_TOPPING_OF]->(cr)
+-----------------------------------------------------------------------------------------------------------------
+
+## This script gives the list of ingredients in the Pizza class through its subcategories even if the ingredients node are not directly connected to the Pizza node.
+
+MATCH (cat:Topic { name: "Pizza"})
+CALL n10s.inference.nodesInCategory(cat, { inCatRel: "IS_TOPPING_OF", subCatRel: "NARROWER_THAN"}) yield node
+return node.topping as INGREDIENT;
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
