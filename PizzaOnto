@@ -1,0 +1,7 @@
+CREATE (c:Topic { name: "Pizza", CalorieContent: 460, dbLabel: "Pizza", identifier: "1" })
+CREATE (po:Topic { name: "NamedPizza", CalorieContent: 440, dbLabel: "NamedPizza", identifier: "2" })
+CREATE (s:Topic { name: "SpicyPizza", CalorieContent: 300, dbLabel: "SpicyPizza", identifier: "3" })
+CREATE (c)<-[:NARROWER_THAN]-(:Topic { name: "MargheritaPizza", CalorieContent: 900, dbLabel: "MargheritaPizza", identifier: "4" })-[:NARROWER_THAN]->(po)
+CREATE (c)<-[:NARROWER_THAN]-(:Topic { name: "HotnSpicy", CalorieContent: 320, dbLabel: "HotnSpicy", identifier: "5" })-[:NARROWER_THAN]->(s)
+CREATE (c)<-[:NARROWER_THAN]-(:Topic { name: "VegPizza", CalorieContent: 590, dbLabel: "VegPizza", identifier: "6" })
+CREATE (c)<-[:NARROWER_THAN]-(:Topic { name: "NonVegPizza", CalorieContent: 676, dbLabel: "NonVegPizza", identifier: "7" })
