@@ -1,0 +1,86 @@
+@prefix : <urn:webprotege:ontology:d9300a4d-beda-49d6-aaa0-ecd1096e71e7#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <urn:webprotege:ontology:d9300a4d-beda-49d6-aaa0-ecd1096e71e7> .
+
+<urn:webprotege:ontology:d9300a4d-beda-49d6-aaa0-ecd1096e71e7> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://webprotege.stanford.edu/R97Bfym6zAScytb6L5kDt8f
+<http://webprotege.stanford.edu/R97Bfym6zAScytb6L5kDt8f> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf owl:topObjectProperty ;
+                                                         rdfs:domain <http://webprotege.stanford.edu/RBd2FYU8bhGT2iKGEmjaWc7> ;
+                                                         rdfs:range <http://webprotege.stanford.edu/R84kazvFX1m0XuW8MjBREZD> ;
+                                                         rdfs:label "acted_in"@en .
+
+
+###  http://webprotege.stanford.edu/RBcvjqk8zJ06D39Z9msdVRp
+<http://webprotege.stanford.edu/RBcvjqk8zJ06D39Z9msdVRp> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf owl:topObjectProperty ;
+                                                         rdfs:domain <http://webprotege.stanford.edu/R84kazvFX1m0XuW8MjBREZD> ;
+                                                         rdfs:range <http://webprotege.stanford.edu/RBd2FYU8bhGT2iKGEmjaWc7> ;
+                                                         rdfs:label "actor"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://webprotege.stanford.edu/R6Feg3PSs3jIjPCOU4nsFz
+<http://webprotege.stanford.edu/R6Feg3PSs3jIjPCOU4nsFz> rdf:type owl:DatatypeProperty ;
+                                                        rdfs:subPropertyOf owl:topDataProperty ;
+                                                        rdfs:domain <http://webprotege.stanford.edu/RBd2FYU8bhGT2iKGEmjaWc7> ;
+                                                        rdfs:range xsd:integer ;
+                                                        rdfs:label "age"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://webprotege.stanford.edu/R0wOjYNP7WDLDhHMmC0SIE
+<http://webprotege.stanford.edu/R0wOjYNP7WDLDhHMmC0SIE> rdf:type owl:Class ;
+                                                        rdfs:subClassOf owl:Thing ;
+                                                        rdfs:comment "A Person is a living being."^^xsd:string ;
+                                                        rdfs:label "Person"@en .
+
+
+###  http://webprotege.stanford.edu/R84kazvFX1m0XuW8MjBREZD
+<http://webprotege.stanford.edu/R84kazvFX1m0XuW8MjBREZD> rdf:type owl:Class ;
+                                                         rdfs:subClassOf owl:Thing ;
+                                                         rdfs:comment "A film is a moving image."^^xsd:string ;
+                                                         rdfs:label "Film"@en .
+
+
+###  http://webprotege.stanford.edu/RBd2FYU8bhGT2iKGEmjaWc7
+<http://webprotege.stanford.edu/RBd2FYU8bhGT2iKGEmjaWc7> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://webprotege.stanford.edu/R0wOjYNP7WDLDhHMmC0SIE> ;
+                                                         rdfs:comment "An actor is a person."^^xsd:string ;
+                                                         rdfs:label "Actor"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://webprotege.stanford.edu/RC4lyfPLN3RDlFp9dYgThB6
+<http://webprotege.stanford.edu/RC4lyfPLN3RDlFp9dYgThB6> rdf:type owl:NamedIndividual ,
+                                                                  <http://webprotege.stanford.edu/R84kazvFX1m0XuW8MjBREZD> ;
+                                                         rdfs:label "Titanic"@en .
+
+
+###  http://webprotege.stanford.edu/RCMJslgdH4gIq5nWDSF1XrG
+<http://webprotege.stanford.edu/RCMJslgdH4gIq5nWDSF1XrG> rdf:type owl:NamedIndividual ,
+                                                                  <http://webprotege.stanford.edu/RBd2FYU8bhGT2iKGEmjaWc7> ;
+                                                         <http://webprotege.stanford.edu/R97Bfym6zAScytb6L5kDt8f> <http://webprotege.stanford.edu/RC4lyfPLN3RDlFp9dYgThB6> ;
+                                                         <http://webprotege.stanford.edu/R6Feg3PSs3jIjPCOU4nsFz> 28 ;
+                                                         rdfs:label "Saquib Ahsan"@en .
+
+
+###  Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi
